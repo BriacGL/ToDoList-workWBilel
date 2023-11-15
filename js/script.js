@@ -162,3 +162,23 @@ saveButton.onclick = function() {
     // Actualiser la page
     location.reload();
 };
+
+var searchInput = document.getElementById('searchInput');
+var searchButton = document.getElementById('searchButton');
+
+// Bouton de recherche
+searchButton.addEventListener('click', function() {
+    filterTasksByTitle(searchInput.value.toLowerCase());
+});
+
+function filterTasksByTitle(searchText) {
+    document.querySelectorAll('.taskList li').forEach(taskItem => {
+        var taskTitle = taskItem.querySelector('.task-input').value.toLowerCase();
+
+        if (taskTitle.includes(searchText)) {
+            taskItem.style.display = '';
+        } else {
+            taskItem.style.display = 'none';
+        }
+    });
+}
