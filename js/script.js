@@ -181,4 +181,5 @@ function filterTasksByTitle(searchText) {
             taskItem.style.display = 'none';
         }
     });
+    console.log(`The term searched for was ${searchText}`);
 }
